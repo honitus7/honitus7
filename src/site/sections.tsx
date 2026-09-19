@@ -1,6 +1,7 @@
 import { resume, RESUME_PDF_PATH, SITE } from '@/content'
 import type { ExperienceRole, Project } from '@/content/types'
 import { ArrowDown, ArrowUpRight, Brain, Cloud, Cpu, Download, Layers, Menu, Search, Server } from './icons'
+import { Ask } from './Ask'
 
 const external = { target: '_blank', rel: 'noreferrer noopener' } as const
 
@@ -91,6 +92,7 @@ export function Hero() {
             </a>
           </div>
         </div>
+        <Ask />
         <ul className="hero-strip" aria-label="Companies and education">
           {SITE.hero.strip.map((s) => (
             <li key={s}>{s}</li>

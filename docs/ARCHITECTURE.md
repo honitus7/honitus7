@@ -1,6 +1,6 @@
 # Architecture
 
-React 19 · TypeScript 5.9 · Vite 8 · Vitest 5 · Playwright 1.63. No runtime dependencies beyond React and the DM Sans font.
+React 19 · TypeScript 5.9 · Vite 8 · Vitest 5 · Playwright 1.63. Browser runtime dependencies: React and the DM Sans font. The optional serverless endpoint uses the Anthropic SDK.
 
 ## Shape
 A single prerendered page. The whole site is one pure React tree (`Site`) rendered from typed content; the build renders it to `dist/index.html`, and the browser hydrates the same tree and attaches three small progressive enhancements.
@@ -20,6 +20,9 @@ content (resume.ts, site.ts)  →  site/Site.tsx (sections, art, icons, jsonLd) 
 | `src/site/sections.tsx` | The section components. Read only from `content`. |
 | `src/site/icons.tsx` | Inline SVG line icons. Photographs live in `public/images` (credits in DESIGN.md). |
 | `src/site/jsonLd.ts` | schema.org Person built from content, serialised safely for a `<script>` tag. |
+| `src/ask/knowledge.ts`, `localAnswer.ts`, `client.ts` | The hero search: content chunks, in-browser retrieval fallback, endpoint client. See ASK.md. |
+| `src/site/Ask.tsx` | Hero search component (form, suggestion chips, answer card). |
+| `api/ask.ts` | Serverless LLM endpoint (Claude) for the search; optional. See ASK.md. |
 | `src/site/enhance.ts` | Progressive enhancement, framework-free: solid nav after the hero, reveal-on-scroll via IntersectionObserver, closing the mobile menu. All gated on `html.js`, so the page is complete with JS off. |
 | `src/styles/site.css` | Design tokens and all styles. See DESIGN.md. |
 | `src/app/main.tsx` | Entry: hydrates `#root` when prerendered, otherwise renders client-side (dev). |

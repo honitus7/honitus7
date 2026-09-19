@@ -13,3 +13,4 @@ blob-report
 .env.*
 !.env.example
 README.preview.html
+.vercel

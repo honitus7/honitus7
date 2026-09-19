@@ -77,3 +77,25 @@ test('the built page is prerendered: HTML alone carries the content and JSON-LD'
   for (const link of SITE.nav) expect(html).toMatch(new RegExp(`<section[^>]*id="${link.id}"`))
   expect(html).toMatch(/<script type="application\/ld\+json">[\s\S]*"@type":"Person"/)
 })
+
+test('the hero search answers a question from site content (local fallback without the endpoint)', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('html')).toHaveClass(/js/)
+  const box = page.getByRole('searchbox', { name: 'Ask about Abhrajeet' })
+  await box.fill('Has Abhrajeet had AI experience?')
+  await page.getByRole('button', { name: /^Ask$/ }).click()
+  const answer = page.getByRole('region', { name: 'Answer' })
+  await expect(answer).toBeVisible({ timeout: 20_000 })
+  await expect(answer).toContainText(/^Yes\./)
+  await expect(answer).toContainText(/73 Strings|LLM|agent/i)
+  const source = answer.getByRole('link').first()
+  await expect(source).toHaveAttribute('href', /^#(about|experience|projects|skills|contact)$/)
+})
+
+test('suggestion chips run a question', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('html')).toHaveClass(/js/)
+  await page.getByRole('button', { name: 'Where did he study?' }).click()
+  const answer = page.getByRole('region', { name: 'Answer' })
+  await expect(answer).toContainText('BITS Pilani', { timeout: 20_000 })
+})

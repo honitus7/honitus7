@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Abhrajeet Mukherjee \u2014 portfolio website (React 19 + TypeScript + Vite, prerendered)",
+  "description": "Abhrajeet Mukherjee — portfolio website (React 19 + TypeScript + Vite, prerendered)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && vite build --ssr src/app/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs",
@@ -16,6 +16,7 @@
     "prerender": "vite build --ssr src/app/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
     "@fontsource-variable/dm-sans": "^5.3.0",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -25,6 +26,7 @@
     "@playwright/test": "1.63.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^22.13.0",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",

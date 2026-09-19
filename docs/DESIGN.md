@@ -19,7 +19,7 @@ DM Sans (variable, self-hosted via fontsource). Display headings are weight 700�
 
 ## Sections, in order
 1. **Nav** — fixed, transparent over the hero, solid cream with blur once scrolled past it. Mobile uses a `<details>` menu.
-2. **Hero** — eyebrow, the name as the H1 (LCP element), tagline, two buttons, and a strip of companies and university.
+2. **Hero** — eyebrow, the name as the H1 (LCP element), tagline, two buttons, the Ask search box with suggestion chips (see ASK.md), and a strip of companies and university.
 3. **About** — one centred statement, then a bento grid of dark cards: lead, approach (with a cloud photograph), education, current role, location.
 4. **Experience** — role cards; the current role is a dark gradient card with a "Current" badge.
 5. **Projects** — three cards with photographic covers and category pills.

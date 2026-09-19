@@ -139,6 +139,44 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero-strip li { display: inline-flex; align-items: center; gap: 10px; }
 .hero-strip li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: 0.6; }
 
+/* ───────────────────────────── Ask (hero search) ───────────────────────────── */
+.ask { width: min(100%, 760px); display: grid; gap: 12px; margin-top: 8px; }
+.ask-form {
+  display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 16px;
+  border-radius: 999px; background: rgba(255, 255, 255, 0.92); color: var(--ink);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 18px 40px -20px rgba(30, 20, 64, 0.6);
+  transition: box-shadow 220ms var(--ease), transform 220ms var(--ease);
+}
+.ask-form:focus-within { box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45), 0 18px 40px -20px rgba(30, 20, 64, 0.6); }
+.ask-icon { display: grid; place-items: center; color: var(--muted); }
+.ask-icon svg { width: 18px; height: 18px; }
+.ask-input { flex: 1; min-width: 0; border: 0; background: none; font: inherit; font-size: 1rem; color: var(--ink); padding: 10px 4px; outline: none; }
+.ask-input::placeholder { color: var(--muted); }
+.ask-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.ask-submit { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: background-color 200ms var(--ease), opacity 200ms var(--ease); }
+.ask-submit:hover:not(:disabled) { background: #3a2c5e; }
+.ask-submit:disabled { opacity: 0.55; cursor: default; }
+.ask-submit svg { width: 14px; height: 14px; }
+.ask[data-status='loading'] .ask-submit svg { animation: spin 900ms linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ask-suggestions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ask-suggestions button { padding: 7px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.35); color: #fff; font-size: 0.85rem; font-weight: 500; backdrop-filter: blur(8px); transition: background-color 200ms var(--ease); }
+.ask-suggestions button:hover:not(:disabled) { background: rgba(255, 255, 255, 0.28); }
+.ask-suggestions button:disabled { opacity: 0.6; cursor: default; }
+.ask-answer { display: grid; gap: 10px; padding: 18px 20px; border-radius: var(--r-m); background: rgba(20, 14, 40, 0.55); backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.18); color: #fff; font-size: 1rem; line-height: 1.55; }
+.ask-answer p { margin: 0; }
+.ask-sources { display: flex; flex-wrap: wrap; gap: 6px 10px; font-size: 0.85rem; color: #e6dbff; }
+.ask-sources span { opacity: 0.8; }
+.ask-sources a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.5); }
+.ask-sources a:hover { text-decoration-color: #fff; }
+.ask-mode { font-size: 0.78rem; color: #d9d1f2; opacity: 0.8; }
+@media (max-width: 640px) {
+  .ask-form { padding-left: 12px; }
+  .ask-submit span { display: none; }
+  .ask-suggestions { gap: 6px; }
+  .ask-suggestions li:nth-child(n + 3) { display: none; }
+}
+
 /* ───────────────────────────── About / bento ───────────────────────────── */
 .about-statement { max-width: 44rem; margin: 0 auto clamp(40px, 6vw, 72px); font-size: clamp(1.35rem, 2.3vw, 1.85rem); line-height: 1.35; letter-spacing: -0.015em; text-align: center; color: var(--ink-2); }
 .about-statement strong { color: var(--ink); font-weight: 700; }

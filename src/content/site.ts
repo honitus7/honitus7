@@ -33,6 +33,17 @@ export const SITE = {
     ctaSecondary: 'Download résumé',
     strip: ['73 Strings', 'Unity Growth Fund', 'BITS Pilani'],
   },
+  ask: {
+    label: 'Ask about Abhrajeet',
+    placeholder: 'Ask anything, e.g. “Has Abhrajeet worked with AI?”',
+    submit: 'Ask',
+    thinking: 'Thinking',
+    sources: 'From:',
+    error: 'Something went wrong. Please try again.',
+    modeLlm: 'Answered by an AI model using only this site’s content.',
+    modeLocal: 'Answered from this site’s content.',
+    suggestions: ['Has Abhrajeet worked with AI?', 'What did he build at 73 Strings?', 'Which languages and frameworks does he use?', 'Where did he study?'],
+  },
   about: {
     statement: 'I start with the person using the product, then engineer for the moment it breaks.',
     statementEmphasis: 'The reliability follows.',
