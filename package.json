@@ -1,0 +1,46 @@
+{
+  "name": "honitus7",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Abhrajeet Mukherjee \u2014 portfolio website (React 19 + TypeScript + Vite, prerendered)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build && vite build --ssr src/app/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc -b --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "prerender": "vite build --ssr src/app/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "^22.13.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "6.1.1",
+    "eslint": "10.10.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "globals": "17.12.0",
+    "jsdom": "30.1.0",
+    "rollup-plugin-visualizer": "7.1.1",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.70.0",
+    "vite": "8.3.0",
+    "vitest": "5.0.1"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
