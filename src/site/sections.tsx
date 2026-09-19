@@ -31,9 +31,6 @@ export function Nav() {
   return (
     <nav className="nav" aria-label="Primary" data-nav>
       <a className="nav-brand" href="#top">
-        <span className="mark" aria-hidden="true">
-          A
-        </span>
         {SITE.wordmark}
       </a>
       <div className="nav-links">
@@ -345,7 +342,7 @@ export function Contact() {
   return (
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="wrap contact-inner">
-        <div className="contact-photo reveal">
+        <div className="contact-photo reveal reveal-scale">
           <img src={IMAGES.contact.src} alt={IMAGES.contact.alt} width="1800" height="700" loading="lazy" decoding="async" />
         </div>
         <h2 id="contact-title" className="h-display h-l reveal">
