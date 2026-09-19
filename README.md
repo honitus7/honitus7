@@ -8,6 +8,7 @@ Hi, I’m Abhrajeet.
 I like understanding how things work, taking complicated problems apart, and building them back into something simple.
 
 I’m drawn to AI, systems, and products — especially where there’s a messy problem and no obvious answer.
+Currently building AI-driven solutions for the Private Equity world, where software meets finance, data, and real-world decisions
 
 I learn by building, break things to understand them, and usually end up asking “why does it work this way?”
 
