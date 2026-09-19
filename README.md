@@ -3,14 +3,13 @@
 ## Know me
 
 <img align="right" src=".github/assets/hero.svg" width="400" alt="Isometric desk: code on one screen, the product on the other">
+Hi, I’m Abhrajeet.
 
-Hi, I'm Abhrajeet — I teach machines to reason about money, and occasionally teach myself new frameworks along the way.
+I like understanding how things work, taking complicated problems apart, and building them back into something simple.
 
-- Wire up LLM-powered agentic workflows and metrics rollup engines that make sense of private-equity fund data
-- Move fluidly across Angular and React frontends and Java-based microservices — whichever side of the stack the problem lives on
-- Design AI agents with LangGraph and LangChain that actually get things done, not just chat
-- Once built a portfolio-monitoring platform from scratch — React, Node.js and Flutter, top to bottom
-- Still chase the same instinct that got me into this: understand the person behind the requirement, then build the thing that actually helps them
+I’m drawn to AI, systems, and products — especially where there’s a messy problem and no obvious answer.
+
+I learn by building, break things to understand them, and usually end up asking “why does it work this way?”
 
 <br clear="right">
 
