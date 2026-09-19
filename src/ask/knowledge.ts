@@ -15,13 +15,31 @@ export interface Chunk {
   readonly text: string
 }
 
+/** Page copy is written in the first person; answers talk about him, so flip the pronouns. */
+export function thirdPerson(text: string, name: string): string {
+  return text
+    .replace(/\bI am\b/g, `${name} is`)
+    .replace(/\bI have\b/g, 'he has')
+    .replace(/\bI still treat\b/g, 'he still treats')
+    .replace(/\bI still\b/g, 'he still')
+    .replace(/\bI ship\b/g, 'he ships')
+    .replace(/\bI start\b/g, 'he starts')
+    .replace(/\bI build\b/g, 'he builds')
+    .replace(/\bI treat\b/g, 'he treats')
+    .replace(/\bI\b/g, 'he')
+    .replace(/\bMy\b/g, 'His')
+    .replace(/\bmy\b/g, 'his')
+    .replace(/\bme\b/g, 'him')
+    .replace(/(^|\. )he\b/g, (_m, p: string) => `${p}He`)
+}
+
 export function buildChunks(content: ResumeContent = resume): readonly Chunk[] {
   const chunks: Chunk[] = []
   const { profile, experience, projects, skills, education, leadership, contacts } = content
 
   chunks.push({ id: 'profile', section: 'about', title: 'Profile', text: `${profile.fullName} is a ${profile.title} based in ${profile.location}. ${profile.summary}` })
-  chunks.push({ id: 'about-lead', section: 'about', title: 'About', text: SITE.about.lead.body })
-  for (const p of SITE.about.principles) chunks.push({ id: `about-${p.eyebrow.toLowerCase()}`, section: 'about', title: p.eyebrow, text: `${p.title} ${p.body}` })
+  chunks.push({ id: 'about-lead', section: 'about', title: 'About', text: thirdPerson(SITE.about.lead.body, profile.firstName) })
+  for (const p of SITE.about.principles) chunks.push({ id: `about-${p.eyebrow.toLowerCase()}`, section: 'about', title: p.eyebrow, text: thirdPerson(`${p.title} ${p.body}`, profile.firstName) })
 
   for (const role of experience) {
     const title = `${role.company} · ${role.role}`

@@ -1,4 +1,4 @@
-import { buildChunks, knowledgeDocument } from './knowledge'
+import { buildChunks, knowledgeDocument, thirdPerson } from './knowledge'
 import { expandQuery, localAnswer, rank, tokenize } from './localAnswer'
 
 describe('knowledge', () => {
@@ -10,6 +10,13 @@ describe('knowledge', () => {
     expect(chunks.some((c) => c.text.includes('Sheriff validation agent'))).toBe(true)
     expect(chunks.some((c) => c.text.includes('BITS Pilani'))).toBe(true)
     expect(chunks.some((c) => c.text.includes('abhrajeet2002@gmail.com'))).toBe(true)
+  })
+
+  it('rewrites first-person page copy into the third person', () => {
+    expect(thirdPerson('At 73 Strings I build systems. My interest began early, and I still treat it as core.', 'Abhrajeet')).toBe(
+      'At 73 Strings he builds systems. His interest began early, and he still treats it as core.',
+    )
+    expect(chunks.find((c) => c.id === 'about-lead')?.text).not.toMatch(/\bI\b/)
   })
 
   it('has unique ids', () => {

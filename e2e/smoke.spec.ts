@@ -84,7 +84,7 @@ test('the hero search answers a question from site content (local fallback witho
   const box = page.getByRole('searchbox', { name: 'Ask about Abhrajeet' })
   await box.fill('Has Abhrajeet had AI experience?')
   await page.getByRole('button', { name: /^Ask$/ }).click()
-  const answer = page.getByRole('region', { name: 'Answer' })
+  const answer = page.getByRole('region', { name: 'Answer', exact: true })
   await expect(answer).toBeVisible({ timeout: 20_000 })
   await expect(answer).toContainText(/^Yes\./)
   await expect(answer).toContainText(/73 Strings|LLM|agent/i)
@@ -95,7 +95,9 @@ test('the hero search answers a question from site content (local fallback witho
 test('suggestion chips run a question', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('html')).toHaveClass(/js/)
-  await page.getByRole('button', { name: 'Where did he study?' }).click()
-  const answer = page.getByRole('region', { name: 'Answer' })
-  await expect(answer).toContainText('BITS Pilani', { timeout: 20_000 })
+  // First chip: the mobile layout hides the third and fourth.
+  await page.getByRole('button', { name: 'Has Abhrajeet worked with AI?' }).click()
+  const answer = page.getByRole('region', { name: 'Answer', exact: true })
+  await expect(answer).toContainText(/^Yes\./, { timeout: 20_000 })
+  await expect(page.getByRole('searchbox')).toHaveValue('Has Abhrajeet worked with AI?')
 })
